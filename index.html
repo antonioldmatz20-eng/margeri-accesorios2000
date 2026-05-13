@@ -1,23 +1,4 @@
-# Margeri Accesorios — Página Completa Lista para Publicar
-
-Guarda este archivo como:
-
-```txt
-index.html
-```
-
-Luego puedes subirlo a:
-
-* GitHub Pages
-* Netlify
-* Vercel
-* CodePen
-
-Y después incrustarlo en Google Sites.
-
----
-
-```html
+html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -735,7 +716,7 @@ contenedor.innerHTML += `
 <div class="product-info">
 <h3>${producto.nombre}</h3>
 <div class="price">$${producto.precio} MXN</div>
-<button type="button" class="btn btn-primary" onclick="event.preventDefault(); agregarCarrito(${index}); return false;">
+<button type="button" class="btn btn-primary" onclick="event.preventDefault(); agregarCarrito(${index}); toggleCarrito(); return false;">
 Agregar al carrito
 </button>
 </div>
@@ -828,11 +809,18 @@ actualizarCarrito();
 
 function toggleCarrito(){
 
-const carritoBox = document.getElementById('carrito');
+const carrito = document.getElementById('carrito');
 
-if(carritoBox.classList.contains('abierto')){
-carritoBox.style.right = '-420px';
-carritoBox.classList.remove('abierto');
+if(carrito.style.right === '0px'){
+
+carrito.style.right = '-450px';
+
+}else{
+
+carrito.style.right = '0px';
+
+}
+
 }else{
 carritoBox.style.right = '0px';
 carritoBox.classList.add('abierto');
@@ -1002,7 +990,11 @@ renderProductos();
 🛒 Carrito
 </div>
 
-<div id="carrito" style="position:fixed;top:0;right:-420px;width:400px;height:100vh;background:white;z-index:9999;box-shadow:-10px 0 30px rgba(0,0,0,.1);padding:30px;transition:.4s;overflow-y:auto;">
+<div id="carrito" style="position:fixed;top:0;right:-450px;width:400px;height:100vh;background:white;z-index:99999;padding:30px;transition:0.4s;overflow-y:auto;box-shadow:-10px 0 30px rgba(0,0,0,.15);">
+
+<button onclick="toggleCarrito()" style="position:absolute;top:20px;right:20px;background:#ff4d6d;color:white;border:none;padding:10px 14px;border-radius:12px;cursor:pointer;">
+✕
+</button>
 
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
 <h2 style="font-family:'Playfair Display',serif;">Tu Carrito</h2>
@@ -1074,32 +1066,3 @@ Agregar Producto
 
 </body>
 </html>
-```
-
----
-
-# Cómo publicarla
-
-## Opción rápida
-
-1. Ve a GitHub
-2. Crea un repositorio
-3. Sube el archivo `index.html`
-4. Activa GitHub Pages
-5. Copia el enlace
-6. Inserta el enlace en Google Sites
-
----
-
-# Resultado
-
-Obtendrás:
-
-* Página profesional
-* Diseño tipo Shopify
-* Responsive para celular
-* Animaciones suaves
-* WhatsApp flotante
-* Productos elegantes
-* Estilo premium rosa metálico
-* Compatible con Google Sites
